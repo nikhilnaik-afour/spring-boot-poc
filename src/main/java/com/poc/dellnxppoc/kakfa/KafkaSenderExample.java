@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.RoutingKafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
 
@@ -16,11 +17,14 @@ public class KafkaSenderExample {
 
     private KafkaTemplate<String, String> kafkaTemplate;
 
-/*    private KafkaTemplate<String, User> userKafkaTemplate;*/
+    private KafkaTemplate<String, User> userKafkaTemplate;
+    private RoutingKafkaTemplate routingKafkaTemplate;
 
     @Autowired
-    KafkaSenderExample(KafkaTemplate<String, String> kafkaTemplate) {
+    KafkaSenderExample(KafkaTemplate<String, String> kafkaTemplate, KafkaTemplate<String, User> userKafkaTemplate) {
+
         this.kafkaTemplate = kafkaTemplate;
+        this.userKafkaTemplate = userKafkaTemplate;
     }
 
     public void sendMessage(String message, String topicName) {
@@ -47,11 +51,17 @@ public class KafkaSenderExample {
         });
 
     }
-
-    /*void sendCustomMessage(User user, String topicName) {
+    void sendCustomMessage(User user, String topicName) {
         LOG.info("Sending Json Serializer : {}", user);
         LOG.info("--------------------------------");
 
         userKafkaTemplate.send(topicName, user);
-    }*/
+    }
+
+    void sendWithRoutingTemplate(String message, String topicName) {
+        LOG.info("Sending : {}", message);
+        LOG.info("--------------------------------");
+
+        routingKafkaTemplate.send(topicName, message.getBytes());
+    }
 }
