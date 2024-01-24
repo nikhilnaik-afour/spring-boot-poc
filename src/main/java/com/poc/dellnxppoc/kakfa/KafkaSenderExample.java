@@ -1,0 +1,57 @@
+package com.poc.dellnxppoc.kakfa;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.stereotype.Component;
+
+import java.util.concurrent.CompletableFuture;
+
+@Component
+public class KafkaSenderExample {
+
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
+
+    private KafkaTemplate<String, String> kafkaTemplate;
+
+/*    private KafkaTemplate<String, User> userKafkaTemplate;*/
+
+    @Autowired
+    KafkaSenderExample(KafkaTemplate<String, String> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    public void sendMessage(String message, String topicName) {
+        LOG.info("Sending : {}", message);
+        LOG.info("--------------------------------");
+
+        kafkaTemplate.send(topicName, message);
+    }
+
+    void sendMessageWithCallback(String message, String topicName) {
+        LOG.info("Sending : {}", message);
+        LOG.info("---------------------------------");
+
+        CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send(topicName, message);
+        future.whenComplete((result, exception) -> {
+            if (exception != null) {
+                LOG.warn("Failure Callback: Unable to deliver message [{}]. {}", message, exception.getMessage());
+                future.completeExceptionally(exception);
+            } else {
+                LOG.info("Success Callback: [{}] delivered with offset -{}", message,
+                        result.getRecordMetadata().offset());
+                future.complete(result);
+            }
+        });
+
+    }
+
+    /*void sendCustomMessage(User user, String topicName) {
+        LOG.info("Sending Json Serializer : {}", user);
+        LOG.info("--------------------------------");
+
+        userKafkaTemplate.send(topicName, user);
+    }*/
+}

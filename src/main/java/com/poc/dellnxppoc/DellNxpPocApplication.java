@@ -10,8 +10,10 @@ import org.springframework.context.annotation.Bean;
 
 import com.poc.dellnxppoc.client.Client;
 import com.poc.dellnxppoc.client.ClientService;
+import org.springframework.kafka.annotation.EnableKafka;
 
 @SpringBootApplication
+@EnableKafka
 public class DellNxpPocApplication {
 
 	public static void main(String[] args) {
