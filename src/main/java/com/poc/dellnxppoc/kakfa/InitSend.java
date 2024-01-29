@@ -28,35 +28,35 @@ class InitSend {
 	
 	@EventListener
 	void initiateSendingMessage(ApplicationReadyEvent event) throws InterruptedException {
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		LOG.info("---------------------------------");
 		kafkaSenderExample.sendMessage("I'll be recevied by MultipleTopicListener, Listener & ClassLevel KafkaHandler", topic1);
 		
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		LOG.info("---------------------------------");
 		kafkaSenderExample.sendCustomMessage(new User("Lucario"), "reflectoring-user");
 
-		Thread.sleep(3000);
+		Thread.sleep(11000);
 		LOG.info("---------------------------------");
 		messageConverterSender.sendMessageWithConverter(new GenericMessage<>(new User("Pikachu")));
 
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		LOG.info("---------------------------------");
 		kafkaSenderExample.sendMessage("I will get reply back from @SendTo", "reflectoring-others");
 
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		LOG.info("---------------------------------");
 		kafkaSenderExample.sendMessage("I'll be received by ListenToPartitionWithOffset", topic3);
 
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		LOG.info("---------------------------------");
 		kafkaSenderExample.sendMessage("I'll be ignored by RecordFilter", topic3);
 
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		LOG.info("---------------------------------");
 		kafkaSenderExample.sendMessageWithCallback("I'll get a asyc Callback", "reflectoring-others");
 
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		LOG.info("---------------------------------");
 		kafkaSenderExample.sendMessageWithCallback("I'm sent using RoutingTemplate", "reflectoring-bytes");
 	}
