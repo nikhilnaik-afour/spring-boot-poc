@@ -3,13 +3,14 @@ package com.poc.dellnxppoc;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.poc.dellnxppoc.db.model.Client;
+import com.poc.dellnxppoc.db.service.ClientService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.poc.dellnxppoc.client.Client;
-import com.poc.dellnxppoc.client.ClientService;
 import org.springframework.kafka.annotation.EnableKafka;
 
 @SpringBootApplication
@@ -21,7 +22,7 @@ public class DellNxpPocApplication {
 	}
 
 	@Bean
-	public CommandLineRunner runner(ClientService clientService) {
+	public CommandLineRunner runner(@Qualifier("jpaService") ClientService clientService) {
 		return args -> {
 			clientService.saveClient(new Client("Client_EXZ", "EZ", LocalDate.now()));
 			System.out.println("Client saved!");
