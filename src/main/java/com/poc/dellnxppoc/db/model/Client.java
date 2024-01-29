@@ -1,16 +1,9 @@
-package com.poc.dellnxppoc.client;
+package com.poc.dellnxppoc.db.model;
 
 import java.time.LocalDate;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import lombok.ToString;
-
-@Document("clients")
 public class Client {
-	
-	@Id
+
 	private String id;
 	private String name;
 	private String location;
