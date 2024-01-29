@@ -1,6 +1,6 @@
 package com.poc.dellnxppoc.kakfa;
 
-class User {
+public class User {
 
 	private String name;
 
