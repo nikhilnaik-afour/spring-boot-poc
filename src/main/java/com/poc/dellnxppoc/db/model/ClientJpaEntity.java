@@ -1,4 +1,4 @@
-package com.poc.dellnxppoc.db.dto;
+package com.poc.dellnxppoc.db.model;
 
 import java.time.LocalDate;
 
@@ -10,12 +10,12 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "clients")
-public class ClientJpaDTO {
-	
+public class ClientJpaEntity {
+
 	@jakarta.persistence.Id
 	@UuidGenerator
 	private String id;
-	
+
 	@Column(name = "name")
 	private String name;
 
@@ -25,18 +25,18 @@ public class ClientJpaDTO {
 	@Column(name = "initializationDate")
 	private LocalDate initializationDate;
 
-	public ClientJpaDTO() {
+	public ClientJpaEntity() {
 		super();
 	}
 
-	public ClientJpaDTO(String name, String location, LocalDate initializationDate) {
+	public ClientJpaEntity(String name, String location, LocalDate initializationDate) {
 		super();
 		this.name = name;
 		this.location = location;
 		this.initializationDate = initializationDate;
 	}
 
-	public ClientJpaDTO(String id, String name, String location, LocalDate initializationDate) {
+	public ClientJpaEntity(String id, String name, String location, LocalDate initializationDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -68,11 +68,11 @@ public class ClientJpaDTO {
 		this.location = location;
 	}
 
-	public LocalDate getInitialization_date() {
+	public LocalDate getInitializationDate() {
 		return initializationDate;
 	}
 
-	public void setInitialization_date(LocalDate initializationDate) {
+	public void setInitializationDate(LocalDate initializationDate) {
 		this.initializationDate = initializationDate;
 	}
 

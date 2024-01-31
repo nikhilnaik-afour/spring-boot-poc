@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.poc.dellnxppoc.db.model.Client;
+import com.poc.dellnxppoc.db.dto.Client;
 import com.poc.dellnxppoc.db.service.ClientMongoService;
 
 @RestController

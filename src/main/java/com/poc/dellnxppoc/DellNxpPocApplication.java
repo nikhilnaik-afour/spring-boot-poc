@@ -3,16 +3,16 @@ package com.poc.dellnxppoc;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.poc.dellnxppoc.db.model.Client;
-import com.poc.dellnxppoc.db.service.ClientService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
-
 import org.springframework.kafka.annotation.EnableKafka;
+
+import com.poc.dellnxppoc.db.dto.Client;
+import com.poc.dellnxppoc.db.service.ClientService;
 
 @SpringBootApplication
 @EnableKafka

@@ -1,4 +1,4 @@
-package com.poc.dellnxppoc.db.model;
+package com.poc.dellnxppoc.db.dto;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package com.poc.dellnxppoc.db.dto;
+package com.poc.dellnxppoc.db.model;
 
 import java.time.LocalDate;
 
@@ -6,25 +6,25 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("clients")
-public class ClientMongoDTO {
+public class ClientMongoEntity {
 	@Id
 	private String id;
 	private String name;
 	private String location;
 	private LocalDate initializationDate;
 
-	public ClientMongoDTO() {
+	public ClientMongoEntity() {
 		super();
 	}
 
-	public ClientMongoDTO(String name, String location, LocalDate initializationDate) {
+	public ClientMongoEntity(String name, String location, LocalDate initializationDate) {
 		super();
 		this.name = name;
 		this.location = location;
 		this.initializationDate = initializationDate;
 	}
 
-	public ClientMongoDTO(String id, String name, String location, LocalDate initializationDate) {
+	public ClientMongoEntity(String id, String name, String location, LocalDate initializationDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -56,11 +56,11 @@ public class ClientMongoDTO {
 		this.location = location;
 	}
 
-	public LocalDate getInitialization_date() {
+	public LocalDate getInitializationDate() {
 		return initializationDate;
 	}
 
-	public void setInitialization_date(LocalDate initializationDate) {
+	public void setInitializationDate(LocalDate initializationDate) {
 		this.initializationDate = initializationDate;
 	}
 
