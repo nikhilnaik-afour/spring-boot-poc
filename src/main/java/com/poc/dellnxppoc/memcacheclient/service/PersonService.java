@@ -13,8 +13,8 @@ public class PersonService {
     @Autowired
     private PersonRepository personRepository;
 
-//    @Cacheable("personCache")
-    @Cacheable(value = "personCache", key = "#id")
+    @Cacheable("personCache")
+    //@Cacheable(value = "personCache", key = "#id")
     public Person getPerson(String id) {
         System.out.println("Fetching data from the database for id: " + id);
 

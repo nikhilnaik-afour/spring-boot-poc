@@ -1,6 +1,6 @@
 package com.poc.dellnxppoc.db.controller;
 
-import com.poc.dellnxppoc.db.model.Client;
+import com.poc.dellnxppoc.db.dto.Client;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;

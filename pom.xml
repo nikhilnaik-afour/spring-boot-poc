@@ -14,7 +14,7 @@
 	<name>dell-nxp-poc</name>
 	<description>Dell NXP Poc Project</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
