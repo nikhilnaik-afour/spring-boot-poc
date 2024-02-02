@@ -1,0 +1,33 @@
+Model:
+
+An Event should include its name, timing, location, owner (organizer), and visitors.
+Optional: Include a list of sessions to be presented during the event.
+An Organizer should have attributes like name, username, and password.
+A Visitor should have a name, username, password, and a list of events they have signed up for.
+Optional: Enable the Visitor to select one or more sessions from an event they signed up for as part of a personal agenda.
+Authorization:
+
+Before accessing any data, a user must authenticate using their username and password.
+Depending on the type of account (Organizer or Visitor), users should only have access to the corresponding set of REST endpoints.
+
+
+Functionalities:
+
+The application should provide APIs to manage events, register and manage Organizers, and register and manage Visitors.
+An Organizer should only be able to see and control his events or those where he is assigned as a co-organizer.
+
+
+Testing:
+
+The application should include a comprehensive set of tests for all APIs.
+The tests should be executed against a database running in a container, utilizing the test containers library: https://github.com/testcontainers/testcontainers-java
+
+
+Optional:
+
+Make the APIs visible in a browser using Swagger UI.
+
+==========================
+When considering the "location" attribute, it will simply be a string field that captures the address.
+Regarding the duration of the event, it will be marked from one DateTime to another DateTime.
+Within this period, an agenda will be laid out where each session has its designated time slot.

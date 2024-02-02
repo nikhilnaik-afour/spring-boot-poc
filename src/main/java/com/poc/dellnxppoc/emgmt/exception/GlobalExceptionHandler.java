@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * 
  */
 
-@ControllerAdvice
+//@ControllerAdvice
 public class GlobalExceptionHandler {
 	private final Logger log = LoggerFactory.getLogger(getClass());
 	private final MessageSource messages;

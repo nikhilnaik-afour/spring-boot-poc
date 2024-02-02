@@ -14,7 +14,7 @@
 	<name>dell-nxp-poc</name>
 	<description>Dell NXP Poc Project</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -77,11 +77,11 @@
 			<artifactId>spymemcached</artifactId>
 			<version>${memcached.version}</version> <!-- Use the latest version -->
 		</dependency>
-        <!--<dependency>
+        <dependency>
 		    <groupId>org.springframework.integration</groupId>
 		    <artifactId>spring-integration-mqtt</artifactId>
 		    <version>6.2.1</version>
-		</dependency>-->
+		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
