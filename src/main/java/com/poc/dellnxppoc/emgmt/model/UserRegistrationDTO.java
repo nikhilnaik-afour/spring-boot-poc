@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.afour.emgmt.model;
+package com.poc.dellnxppoc.emgmt.model;
 
 import java.util.Set;
 
